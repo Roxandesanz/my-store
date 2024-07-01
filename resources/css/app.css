@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.table-styles-tailwind {
+   @apply table-auto w-full ring-2 ring-sky-500/30 align-middle
+} 
+
+.table-styles-tailwind th {
+    @apply bg-sky-950 text-sky-100 py-4 text-center
+} 
+
+.table-styles-tailwind td {
+    @apply border-2 border-sky-50 border-b-sky-50 border-opacity-20 px-5 text-sky-50
+} 
+
+.captionTableList {
+    @apply py-5 text-sky-100 text-xl 
+}
+
+.stylesTolinkToNew {
+    @apply bg-sky-800 text-sky-300 odd:bg-sky-900 hover:bg-sky-700 px-3 py-3 rounded-md 
+}
