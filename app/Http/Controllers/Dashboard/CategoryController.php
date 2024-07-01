@@ -39,7 +39,7 @@ class CategoryController extends Controller
             Category::create($request->validated());
         }
         
-        return to_route('category.index');
+        return to_route('category.index')->with('status', 'Categoría creada correctamente');
     }
 
     /**
@@ -69,7 +69,7 @@ class CategoryController extends Controller
             return to_route('category.edit');
         }
 
-        return to_route('category.index');
+        return to_route('category.index')->with('status', 'Categoría editada correctamente');
     }
 
     /**
@@ -79,6 +79,6 @@ class CategoryController extends Controller
     {
         $category->delete();
      
-        return to_route('category.index');
+        return to_route('category.index')->with('status', 'Categoría eliminada correctamente');
     }
 }

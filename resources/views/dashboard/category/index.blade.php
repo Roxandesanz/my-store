@@ -3,6 +3,8 @@
 @section('content')
 
 @include('dashboard.fragments.errors-form')
+@include('dashboard.fragments.message-form')
+
 <a href="{{ route('category.create') }}" target="_blank">Nuevo post</a>
 
 <table>

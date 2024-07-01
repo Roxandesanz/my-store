@@ -18,6 +18,9 @@ class PostController extends Controller
      */
     public function index()
     {
+        // session()->forget('key');
+        // session()->flush();
+        session(['postPent' => 'Hay Posts Pendientes']);
         $posts = Post::paginate(2);
         $category = Category::find(1);
 
@@ -91,7 +94,7 @@ class PostController extends Controller
             ]);
         }
 
-        return to_route('post.index');
+        return to_route('post.index')->with('status', 'Post creado correctamente');
     }
 
     /**
@@ -99,6 +102,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        session()->forget('postUpdate');
         return view('dashboard.post.show', compact('post'));
     }
 
@@ -121,6 +125,8 @@ class PostController extends Controller
     {
         // dd('here');
         // dd($request->validated());
+        session(['postUpdate' => 'Has editado un post, notifícalo']);
+
         $validatedRequest = $request->validated();
 
         if (isset($validatedRequest['image'])) {
@@ -130,7 +136,7 @@ class PostController extends Controller
 
         $post->update($validatedRequest);
 
-        return to_route('post.index');
+        return to_route('post.index')->with('status', 'Post editado correctamente');
     }
 
     /**
@@ -140,6 +146,6 @@ class PostController extends Controller
     {
         $post->delete();
 
-        return to_route('post.index');
+        return to_route('post.index')->with('status', 'Post eliminado correctamente');
     }
 }
