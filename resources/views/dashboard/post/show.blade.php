@@ -2,8 +2,6 @@
 
 @section('content')
 
-@include('dashboard.fragments.errors-form')
-
 <h1> {{ $post->title }} </h1>
 
 <p>

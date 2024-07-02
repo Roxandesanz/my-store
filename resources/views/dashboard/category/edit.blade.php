@@ -1,16 +1,17 @@
 @extends('dashboard.master')
 
 @section('content')
+    <div class="columns-xl mt-20">
+        <form action="{{ route('category.update', $category->id) }}" method="post">
+            <div class="w-full px-2">
+                @method('patch')
 
-@include('dashboard.fragments.errors-form')
+                @csrf
 
-<form action="{{ route('category.update', $category->id) }}" method="post">
-    @method('patch')
+                @include('dashboard.category.form', ['task' => true])
 
-    @csrf
-
-    @include('dashboard.category.form', [ 'task' => true ])
-
-    <button type="submit">Submit</button>
-</form>
+                <button class="stylesButtonFromA stylesButtonEdit" type="submit">Editar</button>
+            </div>
+        </form>
+    </div>
 @endsection('content')

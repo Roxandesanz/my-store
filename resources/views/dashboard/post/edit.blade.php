@@ -1,16 +1,18 @@
 @extends('dashboard.master')
 
 @section('content')
+    <div class="columns-xl mt-12">
 
-@include('dashboard.fragments.errors-form')
+        <form action="{{ route('post.update', $infoPost->id) }}" method="post" enctype="multipart/form-data">
+            <div class="w-full px-2">
+                @method('patch')
 
-<form action="{{ route('post.update', $infoPost->id) }}" method="post" enctype="multipart/form-data">
-    @method('patch')
+                @csrf
 
-    @csrf
+                @include('dashboard.post.form', ['task' => true])
 
-    @include('dashboard.post.form', [ 'task' => true ])
-
-    <button type="submit">Submit</button>
-</form>
-@endsection('content')
+                <button class="stylesButtonFromA stylesButtonEdit" type="submit">Editar</button>
+            </div>
+        </form>
+    </div>
+@endsection

@@ -1,14 +1,15 @@
 @extends('dashboard.master')
 
 @section('content')
+    <div class="columns-xl mt-12">
+        <form action="{{ route('category.store') }}" method="post">
+            @csrf
+            <div class="w-full px-2">
 
-@include('dashboard.fragments.errors-form')
+                @include('dashboard.category.form')
 
-<form action="{{ route('category.store') }}" method="post">
-    @csrf
-    
-    @include('dashboard.category.form')
-
-    <button type="submit">Submit</button>
-</form>
-@endsection('content')
+                <button class="stylesButtonFromA stylesButtonCreate" type="submit">Guardar</button>
+            </div>
+        </form>
+    </div>
+@endsection

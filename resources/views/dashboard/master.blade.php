@@ -29,11 +29,18 @@
 
             <!-- Page Content -->
             <main>
-                @yield('content')
+                <div class="container space-y-12 mx-auto">
+                    <div class="bg-gray-900 dark:bg-gray-800 rounded-lg shadow-md px-8 py-10 mt-12 grid justify-items-center">
+                        @include('dashboard.fragments.errors-form')
+                        @include('dashboard.fragments.message-form')
+                    
+                        @yield('content')
+                    </div>
+                </div>
 
-                <section>
+                {{-- <section>
                     @yield('morecontent')
-                </section>
+                </section> --}}
             </main>
         </div>
     </body>

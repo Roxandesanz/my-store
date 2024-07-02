@@ -1,11 +1,17 @@
 @session('status')
-{{ $value }}
+    <div class="w-full mb-6 alert-status">
+        {{ $value }}
+    </div>
 @endsession
 
 @session('postPent')
-{{ $value }}
+    <div class="w-full mb-6 alert-info">
+        {{ $value }}
+    </div>
 @endsession
 
 @session('postUpdate')
-{{ $value }}
+    <div class="w-full mb-6 alert-success">
+        {{ $value }}
+    </div>
 @endsession
