@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="columns-xl mt-12">
-        @include('dashboard.fragments.errors-form')
 
         <form action="{{ route('post.store') }}" method="post">
             @csrf
